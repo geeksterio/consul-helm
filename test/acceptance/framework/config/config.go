@@ -62,6 +62,10 @@ func (t *TestConfig) HelmValuesFromConfig() (map[string]string, error) {
 		setIfNotEmpty(helmValues, "global.openshift.enabled", "true")
 	}
 
+	// Set log level to debug by default so we can have this
+	// information in acceptance test failures
+	setIfNotEmpty(helmValues, "connectInject.envoyExtraArgs", "--log-level debug")
+
 	setIfNotEmpty(helmValues, "global.image", t.ConsulImage)
 	setIfNotEmpty(helmValues, "global.imageK8S", t.ConsulK8SImage)
 
