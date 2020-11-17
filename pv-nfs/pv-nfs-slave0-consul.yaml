@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-nfs-slave0-consul
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: standard
+  mountOptions:
+    - hard
+    - nfsvers=4.1
+  nfs:
+    path: /nfs-slave0/pv-nfs-slave0-consul-1Gi
+    server: 192.168.0.54
