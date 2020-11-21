@@ -231,7 +231,7 @@ global:
   # imageEnvoy is the name (and tag) of the Envoy Docker image used for the
   # connect-injected sidecar proxies and the mesh, terminating, and ingress gateways.
   # See https://www.consul.io/docs/connect/proxies/envoy for full compatibility matrix between Consul and Envoy.
-  imageEnvoy: "envoyproxy/envoy-alpine:v1.14.4"
+  imageEnvoy: "jsiebens/envoy-arm64:1.13.3"
 
   # openshift contains configuration for running this Helm chart
   # on the Red Hat OpenShift platform.
@@ -265,8 +265,8 @@ server:
   # storage for the server pods. storage should be set to the disk size of
   # the attached volume. storageClass is the class of storage which defaults
   # to null (the Kube cluster will pick the default).
-  storage: 10Gi
-  storageClass: null
+  storage: 1Gi
+  storageClass: consul-storage
 
   # connect will enable Connect on all the servers, initializing a CA
   # for Connect-related connections. Other customizations can be done
