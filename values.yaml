@@ -621,7 +621,7 @@ ui:
   # balancer (for supported K8S installations) to access the UI.
   service:
     enabled: true
-    type: null
+    type: LoadBalancer
 
     # Annotations to apply to the UI service.
     # Example:
